@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kumaran | Research Interests</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="research.html" class="active">Research Interests</a>
+      <a href="service.html">Academic Service</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+  <i class="fas fa-moon"></i>
+</button>
+
+<main>
+<section>
+<h1>Research Interests</h1>
+<p>My primary research interests lie at the intersection of machine learning systems, representation learning, and biologically inspired computation. I am particularly interested in designing models that are both effective and aligned with principles of efficiency, privacy, and interpretability.</p>
+
+<h2>Core Areas of Interest</h2>
+<ul>
+  <li><strong>Federated Learning and Privacy-Preserving Machine Learning</strong><br>Designing decentralized learning systems that enable collaborative model training without sharing sensitive data.</li>
+  <li><strong>Multimodal Representation Learning and Retrieval Systems</strong><br>Learning aligned representations across vision and language modalities for efficient retrieval and memory-inspired systems.</li>
+  <li><strong>Spiking Neural Networks and Neuromorphic Computing</strong><br>Exploring biologically inspired neural models for temporal processing, energy efficiency, and brain-inspired learning mechanisms.</li>
+  <li><strong>Contrastive Learning and Embedding-Based Methods</strong><br>Studying representation learning techniques for robust embedding spaces and similarity-based retrieval.</li>
+  <li><strong>Reproducible and Research-Grade Machine Learning Pipelines</strong><br>Building end-to-end systems with transparent experimentation, evaluation, and reproducibility.</li>
+</ul>
+
+<h2>Research Direction</h2>
+<p>I aim to pursue research that bridges theory and systems, with a focus on scalable, interpretable, and biologically grounded machine learning models. I am open to research internships, academic collaboration, and graduate research opportunities aligned with these interests.</p>
+</main>
+
+<footer>
+  <p>&copy; 2025 Kumaran. All rights reserved.</p>
+</footer>
+
+<script>
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+themeToggle.addEventListener('click', () => {
+  body.classList.toggle('dark-mode');
+  const icon = themeToggle.querySelector('i');
+  if (body.classList.contains('dark-mode')) {
+    icon.classList.remove('fa-moon');
+    icon.classList.add('fa-sun');
+  } else {
+    icon.classList.remove('fa-sun');
+    icon.classList.add('fa-moon');
+  }
+});
+
+// Load theme from localStorage
+if (localStorage.getItem('theme') === 'dark') {
+  body.classList.add('dark-mode');
+  const icon = themeToggle.querySelector('i');
+  icon.classList.remove('fa-moon');
+  icon.classList.add('fa-sun');
+}
+
+// Save theme to localStorage
+themeToggle.addEventListener('click', () => {
+  if (body.classList.contains('dark-mode')) {
+    localStorage.setItem('theme', 'dark');
+  } else {
+    localStorage.setItem('theme', 'light');
+  }
+});
+
+// Add loaded class for animations
+window.addEventListener('load', () => {
+  body.classList.add('loaded');
+});
+</script>
+</body>
+</html>

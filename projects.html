@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kumaran | Projects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="research.html">Research Interests</a>
+      <a href="service.html">Academic Service</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+  <i class="fas fa-moon"></i>
+</button>
+
+<main>
+<div class="project">
+<h1>Flagship Research Project</h1>
+<h2>Biologically Inspired Multimodal Retrieval using Spiking Neural Networks and FAISS</h2>
+
+<h3>Problem</h3>
+<p>Multimodal retrieval systems typically rely on dense artificial neural networks, which lack biological plausibility and energy-efficient temporal processing. This project explores whether spiking neural networks can be used to learn aligned image–text representations for retrieval, inspired by episodic memory mechanisms in the brain.</p>
+
+<h3>Approach</h3>
+<p>I designed an end-to-end multimodal retrieval pipeline using spiking neural networks as encoders for both image and text modalities. Inputs are converted into spike trains using Poisson encoding, and embeddings are trained using contrastive learning. Learned representations are indexed using FAISS for efficient similarity search.</p>
+
+<h3>System Architecture</h3>
+<ul>
+  <li>Image encoder and text encoder implemented using LIF-based spiking neurons</li>
+  <li>Surrogate gradient learning for backpropagation through spikes</li>
+  <li>Shared embedding space for cross-modal alignment</li>
+  <li>FAISS-based nearest neighbor indexing for retrieval</li>
+</ul>
+<img src="assets/diagrams/SNN_FAISS.png" alt="System Architecture for Biologically Inspired Multimodal Retrieval" class="diagram">
+
+<h3>Experimental Setup</h3>
+<ul>
+  <li>Dataset: Image–text paired dataset</li>
+  <li>Embedding dimension: 512</li>
+  <li>Training: Contrastive loss with stable convergence</li>
+  <li>Evaluation metrics: Recall@1, Recall@5, Mean Reciprocal Rank (MRR)</li>
+</ul>
+
+<h3>Results</h3>
+<p>The system achieved stable training convergence and demonstrated effective cross-modal retrieval performance, validating the feasibility of spike-based multimodal representation learning.</p>
+
+<h3>Reproducibility</h3>
+<p>The complete codebase includes structured experiment tracking, configuration files, and evaluation scripts to ensure reproducibility.</p>
+
+<p>GitHub: <a href="https://github.com/Kumaran-Research/SNN_FAISS">https://github.com/Kumaran-Research/SNN_FAISS</a></p>
+</div>
+
+<div class="project">
+<h1>Applied Research Project</h1>
+<h2>SmartCampus Federated Learning for Face Recognition</h2>
+
+<h3>Problem</h3>
+<p>Centralized face recognition systems raise privacy concerns when training data originates from multiple stakeholders. This project addresses the challenge of building a robust face recognition model without sharing raw facial data across clients.</p>
+
+<h3>Approach</h3>
+<p>I implemented a federated learning pipeline using decentralized clients and a central server for model aggregation. Each client trains locally on private facial data, while only model updates are shared. The system uses a lightweight CNN for efficient training.</p>
+
+<h3>System Architecture</h3>
+<ul>
+  <li>Federated client–server setup using Flower</li>
+  <li>FedProx strategy to handle non-IID data</li>
+  <li>Local training with periodic global aggregation</li>
+</ul>
+<img src="assets/diagrams/SmarCampusFL .png" alt="System Architecture for SmartCampus Federated Learning" class="diagram">
+
+<h3>Experimental Setup</h3>
+<ul>
+  <li>Dataset: AT&T Faces dataset</li>
+  <li>Clients: Simulated multi-client environment</li>
+  <li>Metrics: Client-side accuracy across communication rounds</li>
+  <li>Hardware: CPU-based training</li>
+</ul>
+
+<h3>Results</h3>
+<p>The federated system demonstrated consistent model improvement across rounds while preserving data privacy, validating the effectiveness of decentralized training for face recognition.</p>
+
+<h3>Reproducibility</h3>
+<p>The repository includes preprocessing scripts, training logic, and evaluation utilities for end-to-end reproducibility.</p>
+
+<p>GitHub: <a href="https://github.com/Kumaran-Research/SmartCampus_FL">https://github.com/Kumaran-Research/SmartCampus_FL</a></p>
+</div>
+
+<p class="closing"><br>Additional implementation details, experiment logs, and results are available in the respective GitHub repositories.</p>
+</main>
+
+<footer>
+  <p>&copy; 2025 Kumaran. All rights reserved.</p>
+</footer>
+
+<script>
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+themeToggle.addEventListener('click', () => {
+  body.classList.toggle('dark-mode');
+  const icon = themeToggle.querySelector('i');
+  if (body.classList.contains('dark-mode')) {
+    icon.classList.remove('fa-moon');
+    icon.classList.add('fa-sun');
+  } else {
+    icon.classList.remove('fa-sun');
+    icon.classList.add('fa-moon');
+  }
+});
+
+// Load theme from localStorage
+if (localStorage.getItem('theme') === 'dark') {
+  body.classList.add('dark-mode');
+  const icon = themeToggle.querySelector('i');
+  icon.classList.remove('fa-moon');
+  icon.classList.add('fa-sun');
+}
+
+// Save theme to localStorage
+themeToggle.addEventListener('click', () => {
+  if (body.classList.contains('dark-mode')) {
+    localStorage.setItem('theme', 'dark');
+  } else {
+    localStorage.setItem('theme', 'light');
+  }
+});
+
+// Add loaded class for animations
+window.addEventListener('load', () => {
+  body.classList.add('loaded');
+});
+</script>
+</body>
+</html>

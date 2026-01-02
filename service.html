@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kumaran | Academic Service</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="research.html">Research Interests</a>
+      <a href="service.html" class="active">Academic Service</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+  <i class="fas fa-moon"></i>
+</button>
+
+<main>
+<section>
+<h1>Academic Service & Awards</h1>
+
+<h2>Academic Service</h2>
+
+<div class="service-item">
+  <h3>Academic Program Coordinator</h3>
+  <p><strong>National Digital Library of India (NDLi)</strong></p>
+  <p>Coordinated academic programs and student engagement initiatives related to digital learning resources</p>
+  <p>Supported dissemination and accessibility of academic content for students and faculty</p>
+</div>
+
+<div class="service-item">
+  <h3>Innovation Ambassador Lead</h3>
+  <p><strong>Institution's Innovation Council (IIC)</strong></p>
+  <p>Led student-focused initiatives promoting innovation, entrepreneurship, and research awareness</p>
+  <p>Supported institutional activities related to innovation and incubation programs</p>
+</div>
+
+<h2>Honors & Awards</h2>
+
+<div class="award-item">
+  <h3>Finalist – Shaastra 2023 Hackathon</h3>
+  <p><strong>Indian Institute of Technology Madras</strong></p>
+  <p>Selected among top teams for developing an innovative technical solution under competitive constraints at IIT Madras' flagship technical festival</p>
+</div>
+
+<p class="note">These activities reflect academic service and competitive engagement alongside primary research work.</p>
+</section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Kumaran. All rights reserved.</p>
+</footer>
+
+<script>
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+themeToggle.addEventListener('click', () => {
+  body.classList.toggle('dark-mode');
+  const icon = themeToggle.querySelector('i');
+  if (body.classList.contains('dark-mode')) {
+    icon.classList.remove('fa-moon');
+    icon.classList.add('fa-sun');
+  } else {
+    icon.classList.remove('fa-sun');
+    icon.classList.add('fa-moon');
+  }
+});
+
+// Load theme from localStorage
+if (localStorage.getItem('theme') === 'dark') {
+  body.classList.add('dark-mode');
+  const icon = themeToggle.querySelector('i');
+  icon.classList.remove('fa-moon');
+  icon.classList.add('fa-sun');
+}
+
+// Save theme to localStorage
+themeToggle.addEventListener('click', () => {
+  if (body.classList.contains('dark-mode')) {
+    localStorage.setItem('theme', 'dark');
+  } else {
+    localStorage.setItem('theme', 'light');
+  }
+});
+
+// Add loaded class for animations
+window.addEventListener('load', () => {
+  body.classList.add('loaded');
+});
+</script>
+</body>
+</html>

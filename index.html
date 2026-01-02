@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kumaran | AI Research Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="research.html">Research Interests</a>
+      <a href="service.html">Academic Service</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+  <i class="fas fa-moon"></i>
+</button>
+
+<main>
+<section class="hero">
+  <div class="hero-content">
+    <img src="assets/images/profile.png" alt="Kumaran V – AI Research Portfolio" class="profile-img">
+    <div class="hero-text">
+      <h1>Kumaran V</h1>
+      <p class="tagline">AI Researcher · Federated Learning · Neuro-Inspired Systems</p>
+      <p class="identity">Building research-grade machine learning systems focused on privacy-preserving learning, multimodal retrieval, and biologically inspired neural computation.</p>
+    </div>
+  </div>
+</section>
+
+<section class="intro">
+  <h2>About Me</h2>
+  <p>I am a final-year B.Tech student and independent AI researcher focused on building research-grade machine learning systems. My work spans federated learning for privacy-preserving face recognition and biologically inspired multimodal retrieval using spiking neural networks. I am interested in representation learning, retrieval systems, and reproducible ML pipelines.</p>
+</section>
+
+<section class="focus-areas">
+  <h2>Primary Focus Areas</h2>
+  <ul>
+    <li>Federated learning and privacy-preserving machine learning</li>
+    <li>Multimodal representation learning and retrieval systems</li>
+    <li>Spiking neural networks and biologically inspired models</li>
+    <li>End-to-end, reproducible machine learning pipelines</li>
+  </ul>
+</section>
+
+<section class="links">
+  <h2>Connect With Me</h2>
+  <ul>
+    <li><a href="https://github.com/Kumaran-Research" target="_blank">GitHub</a></li>
+    <li><a href="https://www.linkedin.com/in/kumaran-v-54204b3a3/" target="_blank">LinkedIn</a></li>
+    <li><a href="mailto:kumaran.v.4002@gmail.com">Email</a></li>
+  </ul>
+</section>
+
+<p class="collaboration">Open to research internships and academic collaboration.</p>
+</main>
+
+<footer>
+  <p>&copy; 2025 Kumaran. All rights reserved.</p>
+</footer>
+
+<script>
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+themeToggle.addEventListener('click', () => {
+  body.classList.toggle('dark-mode');
+  const icon = themeToggle.querySelector('i');
+  if (body.classList.contains('dark-mode')) {
+    icon.classList.remove('fa-moon');
+    icon.classList.add('fa-sun');
+  } else {
+    icon.classList.remove('fa-sun');
+    icon.classList.add('fa-moon');
+  }
+});
+
+// Load theme from localStorage
+if (localStorage.getItem('theme') === 'dark') {
+  body.classList.add('dark-mode');
+  const icon = themeToggle.querySelector('i');
+  icon.classList.remove('fa-moon');
+  icon.classList.add('fa-sun');
+}
+
+// Save theme to localStorage
+themeToggle.addEventListener('click', () => {
+  if (body.classList.contains('dark-mode')) {
+    localStorage.setItem('theme', 'dark');
+  } else {
+    localStorage.setItem('theme', 'light');
+  }
+});
+
+// Add loaded class for animations
+window.addEventListener('load', () => {
+  body.classList.add('loaded');
+});
+</script>
+</body>
+</html>

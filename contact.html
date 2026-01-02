@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kumaran | Contact & Links</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="research.html">Research Interests</a>
+      <a href="service.html">Academic Service</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+  <i class="fas fa-moon"></i>
+</button>
+
+<main>
+<section>
+<h1>Contact</h1>
+<p>If you would like to discuss research ideas, collaboration opportunities, or academic positions, feel free to reach out through the channels below.</p>
+
+<h2>Links</h2>
+<ul>
+  <li><strong>GitHub:</strong> <a href="https://github.com/Kumaran-Research">https://github.com/Kumaran-Research</a><br>Research-grade implementations of federated learning and biologically inspired machine learning systems.</li>
+  <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/kumaran-v-54204b3a3/">https://www.linkedin.com/in/kumaran-v-54204b3a3/</a><br>Professional profile highlighting research projects, academic service, and experience.</li>
+  <li><strong>Email:</strong> <a href="mailto:kumaran.v.4002@gmail.com">kumaran.v.4002@gmail.com</a><br>For research inquiries and collaboration.</li>
+</ul>
+
+<p><br>Open to research internships, academic collaboration, and graduate research opportunities.</p>
+</main>
+
+<footer>
+  <p>&copy; 2025 Kumaran. All rights reserved.</p>
+</footer>
+
+<script>
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+themeToggle.addEventListener('click', () => {
+  body.classList.toggle('dark-mode');
+  const icon = themeToggle.querySelector('i');
+  if (body.classList.contains('dark-mode')) {
+    icon.classList.remove('fa-moon');
+    icon.classList.add('fa-sun');
+  } else {
+    icon.classList.remove('fa-sun');
+    icon.classList.add('fa-moon');
+  }
+});
+
+// Load theme from localStorage
+if (localStorage.getItem('theme') === 'dark') {
+  body.classList.add('dark-mode');
+  const icon = themeToggle.querySelector('i');
+  icon.classList.remove('fa-moon');
+  icon.classList.add('fa-sun');
+}
+
+// Save theme to localStorage
+themeToggle.addEventListener('click', () => {
+  if (body.classList.contains('dark-mode')) {
+    localStorage.setItem('theme', 'dark');
+  } else {
+    localStorage.setItem('theme', 'light');
+  }
+});
+
+// Add loaded class for animations
+window.addEventListener('load', () => {
+  body.classList.add('loaded');
+});
+</script>
+</body>
+</html>
