@@ -161,13 +161,61 @@ This supports global feature attribution while keeping runtime stable.
 </p>
 
 <h3>Results (from repository outputs)</h3>
-<ul>
-  <li>Random Forest: Accuracy 0.9760, Precision 0.9828, Recall 0.9733, F1-score 0.9781, ROC-AUC 0.9970</li>
-  <li>XGBoost: ROC-AUC 0.9965</li>
-  <li>Decision Tree: ROC-AUC 0.9637</li>
-  <li>KNN: ROC-AUC 0.9083</li>
-  <li>Logistic Regression: ROC-AUC 0.8223</li>
-</ul>
+
+<table class="results-table" style="width:100%; border-collapse:collapse; text-align:center; margin: 0 auto;">
+  <thead>
+    <tr>
+      <th style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>Model</strong></th>
+      <th style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>Accuracy</strong></th>
+      <th style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>Precision</strong></th>
+      <th style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>Recall</strong></th>
+      <th style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>F1-Score</strong></th>
+      <th style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>AUC</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>Random Forest</strong></td>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>0.9760</strong></td>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>0.9828</strong></td>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>0.9733</strong></td>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>0.9781</strong></td>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>0.9970</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>XGBoost</strong></td>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>0.9733</strong></td>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>0.9825</strong></td>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>0.9687</strong></td>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>0.9756</strong></td>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>0.9965</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>Decision Tree</strong></td>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>0.9642</strong></td>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>0.9666</strong></td>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>0.9683</strong></td>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>0.9675</strong></td>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>0.9637</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>K-Nearest Neighbors</strong></td>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>0.8047</strong></td>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>0.8286</strong></td>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>0.8136</strong></td>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>0.8210</strong></td>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>0.9083</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>Logistic Regression</strong></td>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>0.7528</strong></td>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>0.8445</strong></td>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>0.6754</strong></td>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>0.7505</strong></td>
+      <td style="text-align:center; padding:8px; border:2px solid #667eea;"><strong>0.8223</strong></td>
+    </tr>
+  </tbody>
+</table>
 
 <h3>Reproducibility & Artifacts</h3>
 <p>
