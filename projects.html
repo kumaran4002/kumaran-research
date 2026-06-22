@@ -63,6 +63,7 @@
 <p>The complete codebase includes structured experiment tracking, configuration files, and evaluation scripts to ensure reproducibility.</p>
 
 <p>GitHub: <a href="https://github.com/Kumaran-Research/SNN_FAISS">https://github.com/Kumaran-Research/SNN_FAISS</a></p>
+<p>DOI: <a href="https://doi.org/10.55041/ijcope.v2i5.758" target="_blank" rel="noopener noreferrer">https://doi.org/10.55041/ijcope.v2i5.758</a></p>
 </div>
 
 <div class="project">
@@ -97,8 +98,91 @@
 <h3>Reproducibility</h3>
 <p>The repository includes preprocessing scripts, training logic, and evaluation utilities for end-to-end reproducibility.</p>
 
-<p>GitHub: <a href="https://github.com/Kumaran-Research/SmartCampus_FL">https://github.com/Kumaran-Research/SmartCampus_FL</a></p>
+<p>GitHub: <a href="https://github.com/Kumaran-Research/SmartCampus_FL" target="_blank" rel="noopener noreferrer">https://github.com/Kumaran-Research/SmartCampus_FL</a></p>
+<p>DOI: <a href="https://ijirt.org/article?manuscript=203395" target="_blank" rel="noopener noreferrer">https://ijirt.org/article?manuscript=203395</a></p>
 </div>
+
+<div class="project">
+<h1>Research Project</h1>
+<h2>Leakage-Aware Explainable Network Intrusion Detection Using Random Forest and SHAP on the UNSW-NB15 Dataset</h2>
+
+<h3>Project Overview</h3>
+<p>
+This project develops a leakage-aware and explainable machine learning framework for network intrusion detection on the UNSW-NB15 (UNW-NB15 / UNSW-NB15) dataset.
+The primary classifier is an ensemble-based Random Forest (RF), and the interpretability component leverages SHAP
+(SHapley Additive exPlanations) with tree-specific explanations via <code>shap.TreeExplainer</code>.
+</p>
+
+<p>
+The methodology is structured to satisfy two research requirements central to cybersecurity analytics:
+(1) predictive reliability under controlled feature handling (mitigating inflated metrics caused by label leakage),
+and (2) operationally interpretable outputs that support analyst reasoning, alert triage, and auditability.
+</p>
+
+<p>
+The project benchmarks the RF against representative baseline families under matched preprocessing conditions:
+Logistic Regression, Decision Tree, K-Nearest Neighbors (KNN), and XGBoost.
+</p>
+
+<h3>Research Motivation</h3>
+<ul>
+  <li>Spurious correlations and leakage effects: features can unintentionally encode the target label or act as proxies.</li>
+  <li>Analyst trust and evidence requirements: security teams require explanations to support incident investigation.</li>
+  <li>Cost-sensitive error profiles: different operational contexts impose different costs for false positives/false negatives.</li>
+</ul>
+
+<h3>Problem Statement</h3>
+<p>
+Let X ∈ ℝᵈ denote the preprocessed representation of a network flow, and let y ∈ {0,1} represent the binary class label, where:
+y = 0 is benign and y = 1 is malicious.
+The core task is to learn a classifier f(X) → {0,1} that minimizes predictive error while avoiding leakage-induced shortcuts.
+</p>
+
+<h3>Key Idea: Leakage Handling Strategy</h3>
+<p>
+Leakage-aware learning is implemented by removing known fields that can directly or indirectly encode the label.
+S' = S \ {attack_cat, id}. Operationally, the pipeline drops <code>attack_cat</code> and <code>id</code> when present.
+</p>
+
+<h3>Experimental Setup (High-level)</h3>
+<ul>
+  <li>Load UNSW-NB15 training data.</li>
+  <li>Apply cleaning, leakage removal, label normalization, and one-hot encoding.</li>
+  <li>Train baseline models (LR, DT, KNN, XGBoost) and the primary RF.</li>
+  <li>Evaluate with classification metrics on a held-out internal validation split and generate artifacts.</li>
+  <li>Generate RF explanation artifacts using SHAP and a SHAP summary plot.</li>
+</ul>
+
+<h3>Explainable AI Integration using SHAP</h3>
+<p>
+For the RF model, explainability uses <code>shap.TreeExplainer(rf)</code> and computes SHAP on a reproducible subset:
+<code>X_sample = X_test.sample(500, random_state=42)</code>.
+This supports global feature attribution while keeping runtime stable.
+</p>
+
+<h3>Results (from repository outputs)</h3>
+<ul>
+  <li>Random Forest: Accuracy 0.9760, Precision 0.9828, Recall 0.9733, F1-score 0.9781, ROC-AUC 0.9970</li>
+  <li>XGBoost: ROC-AUC 0.9965</li>
+  <li>Decision Tree: ROC-AUC 0.9637</li>
+  <li>KNN: ROC-AUC 0.9083</li>
+  <li>Logistic Regression: ROC-AUC 0.8223</li>
+</ul>
+
+<h3>Reproducibility & Artifacts</h3>
+<p>
+Reproducibility is supported by explicit parameter control (e.g., random seeds and consistent preprocessing),
+and the pipeline produces performance artifacts such as confusion matrices, ROC curves, SHAP summary plots,
+and consolidated baseline comparison results.
+</p>
+
+<img src="assets/diagrams/Ach.png" alt="Project diagram for Leakage-Aware Explainable Network Intrusion Detection using RF and SHAP" class="diagram">
+
+<h3>Links</h3>
+<p>GitHub: <a href="https://github.com/Kumaran-Research/UNSW-XAI-Project.git" target="_blank" rel="noopener noreferrer">https://github.com/Kumaran-Research/UNSW-XAI-Project.git</a></p>
+<p>DOI: <a href="https://ijirt.org/article?manuscript=203399" target="_blank" rel="noopener noreferrer">https://ijirt.org/article?manuscript=203399</a></p>
+</div>
+
 
 <p class="closing"><br>Additional implementation details, experiment logs, and results are available in the respective GitHub repositories.</p>
 </main>
